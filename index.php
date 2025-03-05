@@ -6,8 +6,8 @@ $config      = require 'config.php';
 $rankManager = new RankManager($config);
 $userManager = new UserManager($config, $rankManager);
 
-$top3     = $userManager->getTop3();
-$top10    = $userManager->getTop10();
+$topHead  = $userManager->gettopHead();
+$topVIP   = $userManager->gettopVIP();
 $rankings = $userManager->getRankings();
 
 require 'templates/layout.php';

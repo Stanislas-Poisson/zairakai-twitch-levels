@@ -14,8 +14,8 @@
     <main>
         <?php 
         require 'templates/legend.php';
-        require 'templates/top3.php';
-        require 'templates/top10.php';
+        require 'templates/topHead.php';
+        require 'templates/topVIP.php';
         require 'templates/rankings.php';
         ?>
     </main>

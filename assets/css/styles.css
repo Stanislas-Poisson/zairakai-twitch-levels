@@ -123,7 +123,7 @@ main {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
-        'top10 top10 top10 top3 top3 top3 top3 top3'
+        'topVIP topVIP topVIP topHead topHead topHead topHead topHead'
         'legend legend list list list list list list';
     gap: 1.375rem;
     margin: 0 auto;
@@ -160,28 +160,28 @@ main {
 }
 
 /* Top 3 section */
-#top3 {
-    grid-area: top3;
+#topHead {
+    grid-area: topHead;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 'rank1 rank2 rank3';
     gap: 1rem;
 }
 
-#top3 [data-rank] {
+#topHead [data-rank] {
     position: relative;
     display: flex;
     gap: 0.5rem;
     flex-direction: column;
 }
 
-#top3 [data-rank] .avatar {
+#topHead [data-rank] .avatar {
     position: relative;
     background-color: #000B1C;
     box-shadow: 0 0 0 0.125rem #fafafa;
 }
 
-#top3 [data-rank] .avatar .level {
+#topHead [data-rank] .avatar .level {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -193,17 +193,17 @@ main {
     z-index: 1;
 }
 
-#top3 [data-rank] .avatar .level [class^=rank] {
+#topHead [data-rank] .avatar .level [class^=rank] {
     padding: 0.25rem 0;
     border-radius: 0;
     text-align: unset;
 }
 
-#top3 [data-rank="1"] { grid-area: rank1; }
-#top3 [data-rank="2"] { grid-area: rank2; padding-top: 3rem; }
-#top3 [data-rank="3"] { grid-area: rank3; padding-top: 6rem; }
+#topHead [data-rank="1"] { grid-area: rank1; }
+#topHead [data-rank="2"] { grid-area: rank2; padding-top: 3rem; }
+#topHead [data-rank="3"] { grid-area: rank3; padding-top: 6rem; }
 
-#top3 [data-rank]::before {
+#topHead [data-rank]::before {
     content: '';
     position: absolute;
     top: 0;
@@ -217,39 +217,39 @@ main {
     z-index: 1;
 }
 
-#top3 [data-rank="1"]::before { 
+#topHead [data-rank="1"]::before { 
     background-image: url(../images/rank_medal_1.png); 
 }
 
-#top3 [data-rank="2"]::before { 
+#topHead [data-rank="2"]::before { 
     background-image: url(../images/rank_medal_2.png);
     top: 3rem;
 }
 
-#top3 [data-rank="3"]::before { 
+#topHead [data-rank="3"]::before { 
     background-image: url(../images/rank_medal_3.png);
     top: 6rem;
 }
 
-#top3 .username {
+#topHead .username {
     text-align: center;
     font-weight: bold;
 }
 
-#top3 .level {
+#topHead .level {
     text-align: center;
 }
 
 /* Top 10 section */
-#top10 {
-    grid-area: top10;
+#topVIP {
+    grid-area: topVIP;
     display: grid;
     grid-auto-rows: max-content;
     border-radius: 0.75rem;
     overflow: hidden;
 }
 
-#top10 h2 {
+#topVIP h2 {
     margin: 0;
     padding: 0.25rem 0.5rem;
     text-align: center;
@@ -257,11 +257,11 @@ main {
     background-color: #111a2a;
 }
 
-#top10 h2 i {
+#topVIP h2 i {
     font-size: .8rem;
 }
 
-#top10 [data-rank] {
+#topVIP [data-rank] {
     display: grid;
     grid-template-columns: 2rem 1.375rem 1.375rem 1fr;
     gap: 0.75rem;
@@ -270,28 +270,28 @@ main {
     padding: 0.25rem 0.5rem;
 }
 
-#top10 [data-rank]:nth-child(even) {
+#topVIP [data-rank]:nth-child(even) {
     background-color: rgb(17 26 42 / 75%);
 }
 
-#top10 [data-rank]:hover {
+#topVIP [data-rank]:hover {
     background-color: #3f516e;
 }
 
-#top10 [data-rank] > div {
+#topVIP [data-rank] > div {
     place-self: center start;
 }
 
-#top10 [data-rank] > div:nth-child(2) .role {
+#topVIP [data-rank] > div:nth-child(2) .role {
     display: block;
 }
 
-#top10 .username {
+#topVIP .username {
     justify-self: start;
 }
 
-#top10 .role,
-#top10 .avatar img {
+#topVIP .role,
+#topVIP .avatar img {
     height: 1.375rem;
 }
 

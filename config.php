@@ -19,16 +19,19 @@ return [
             'streamlabs',
         ],
         'vips'                 => [
-            'kholoh',
-            'charly_bell',
-            'el_girafon',
-            'lhyx__',
+            'el_girafon',   // 2025-03-06
+            'lhyx__',       // 2025-03-15
+            'sirlink__',    // 2025-03-27
+            'opale_maskhee',// 2025-03-26
+            'AFKaaafe',     // 2025-04-05
         ],
         'vips_honoraires'      => [
             'bluestardust_',
             'deafmute',
             'gunter423_',
             'crazymeal',
+            'saltythom',
+            'mariepepin',
         ],
         'vips_trimestre_sound' => [
             'saltythom',
@@ -38,6 +41,11 @@ return [
             'tonton_flingueur_',
         ],
         'vips_trimestre'       => [
+            'saltythom',
+            'spawer88',
+            'chiragi_lauvel',
+            'mariepepin',
+            'tonton_flingueur_',
             'crazymeal',
             'hyperion__rl',
             'flora5912',
@@ -48,6 +56,7 @@ return [
             'maiko_ema',
             'nao_mynn',
             'flora5912',
+            'dame_ophelie',
         ],
         'artistes'             => [
             'bluestardust_',
@@ -56,17 +65,13 @@ return [
             'mariepepin',
         ],
         'subs'                 => [
-            'pi314413',
-            'langousteam',
-            'nao_mynn',
-            'sirlink__',
+            'dame_ophelie',
+            'tayred06',
+            'greve',
+            'ore_sama18',
             'saltythom',
-            'flora5912',
-            'hyperion__rl',
-            'bonjour',
-            'Ore_Sama18',
             'el_girafon',
-            'dame_ophelie'
+            'flora5912',
         ],
     ],
 
@@ -81,11 +86,17 @@ return [
         39  => 24179,
         25  => 10074,
         15  => 3719,
-        0   => 0
+        0   => 0,
     ],
 
     'xp_rates' => [
         'per_minute'     => 35,
-        'per_10_minutes' => 300
-    ]
+        'per_10_minutes' => 300,
+    ],
+
+    'top' => [
+        'all'  => 50,
+        'head' => 3,
+        'vip'  => 5,
+    ],
 ];

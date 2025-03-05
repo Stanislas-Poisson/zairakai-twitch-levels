@@ -16,11 +16,11 @@ class UserManager {
     private array $rankings = [];
 
     /**
-     * Summary of rankings10
+     * Summary of rankingsVIP
      *
      * @var array
      */
-    private array $rankings10 = [];
+    private array $rankingsVIP = [];
 
     /**
      * Summary of __construct
@@ -90,20 +90,19 @@ class UserManager {
             ) {
                 switch ($group) {
                     case 'vips':
-                        $roles[1] = 'vip';
+                        if (! isset($roles[1])) { $roles[1] = 'vip'; }
+                        break;
+
+                    case 'vips_trimestre':
+                        if (! isset($roles[1])) { $roles[1] = 'vip-trimestre'; }
+                        break;
+
+                    case 'vips_trimestre_sound':
+                        $roles[2] = 'music';
                         break;
 
                     case 'vips_honoraires':
                         $roles[1] = 'vip-honorific';
-                        break;
-
-                    case 'vips_trimestre_sound':
-                        $roles[1] = 'vip-trimestre';
-                        $roles[2] = 'music';
-                        break;
-
-                    case 'vips_trimestre':
-                        $roles[1] = 'vip-trimestre';
                         break;
 
                     case 'mods':
@@ -153,7 +152,7 @@ class UserManager {
                 ! $this->isModerator($roles) &&
                 ! $this->isVipTrimestre($roles)
             ) {
-                $this->rankings10[$user['username']] = $rankData;
+                $this->rankingsVIP[$user['username']] = $rankData;
             }
         }
         
@@ -254,29 +253,29 @@ class UserManager {
         $sortFunc = fn($a, $b) => $b['xp'] - $a['xp'];
 
         uasort($this->rankings, $sortFunc);
-        uasort($this->rankings10, $sortFunc);
+        uasort($this->rankingsVIP, $sortFunc);
         
-        $this->rankings = array_slice($this->rankings, 0, 50);
+        $this->rankings = array_slice($this->rankings, 0, $this->config['top']['all']);
     }
 
     /**
-     * Summary of getTop3
+     * Summary of gettopHead
      *
      * @return array
      */
-    public function getTop3(): array
+    public function gettopHead(): array
     {
-        return array_slice($this->rankings, 0, 3);
+        return array_slice($this->rankings, 0, $this->config['top']['head']);
     }
 
     /**
-     * Summary of getTop10
+     * Summary of gettopVIP
      *
      * @return array
      */
-    public function getTop10(): array
+    public function gettopVIP(): array
     {
-        return array_slice($this->rankings10, 0, 10);
+        return array_slice($this->rankingsVIP, 0, $this->config['top']['vip']);
     }
 
     /**
@@ -287,5 +286,15 @@ class UserManager {
     public function getRankings(): array
     {
         return array_slice($this->rankings, 3);
+    }
+
+    /**
+     * Number of people who get the sound command.
+     * 
+     * @return int
+     */
+    public function vipSounded(): int
+    {
+        return ceil($this->config['top']['vip'] / 2);
     }
 }
