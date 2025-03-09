@@ -35,6 +35,11 @@
             <div class="nextLevel">
                 <? echo $formatNextTitle['level'] . ' d\'ici ' . $rank['xpEstimation']; ?>
             </div>
+            <div class="rank">
+                <span># <? echo $count; ?></span>
+                <img src="assets/images/<? echo $rank['fromPrevious']['img']; ?>.png">
+                <span><? echo $rank['fromPrevious']['nbr']; ?></span>
+            </div>
         </a>
     <? } ?>
 </section>

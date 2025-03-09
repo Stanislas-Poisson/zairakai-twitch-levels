@@ -35,6 +35,52 @@ class UserManager {
     {
         $this->loadUsers();
         $this->processRankings();
+        $this->addStateofPrevious();
+    }
+
+    /**
+     * Summary of showNewPrevious
+     * 
+     * @return void
+     */
+    public function showNewPrevious(): void
+    {
+        $i = 1;
+        foreach($this->rankings as $viewer => $data) {
+            echo $i . ' => \'' . $viewer.'\',<br>';
+            $i++;
+        }
+        die();
+    }
+
+    /**
+     * Summary of addStateofPrevious
+     * 
+     * @return void
+     */
+    public function addStateofPrevious(): void
+    {
+        $i = 1;
+        foreach ($this->rankings as $viewer => $data) {
+            $previousPlace = array_search($viewer, $this->config['previous']);
+            if (false === $previousPlace) {
+                $this->rankings[$viewer]['fromPrevious']['img'] = 'up';
+                $this->rankings[$viewer]['fromPrevious']['nbr'] = '+'.($this->config['top']['all'] + 1 - $i);
+            }
+            else if ($i < $previousPlace) {
+                $this->rankings[$viewer]['fromPrevious']['img'] = 'up';
+                $this->rankings[$viewer]['fromPrevious']['nbr'] = '+'.$previousPlace - $i;
+            }
+            else if($i == $previousPlace) {
+                $this->rankings[$viewer]['fromPrevious']['img'] = 'stay';
+                $this->rankings[$viewer]['fromPrevious']['nbr'] = 0;
+            }
+            else {
+                $this->rankings[$viewer]['fromPrevious']['img'] = 'down';
+                $this->rankings[$viewer]['fromPrevious']['nbr'] = '-'.$i - $previousPlace;
+            }
+            $i++;
+        }
     }
 
     /**

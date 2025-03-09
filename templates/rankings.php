@@ -13,7 +13,9 @@
             data-rank="<? echo $count; ?>"
         >
             <div class="rank">
-                # <? echo $count; ?>
+                <span># <? echo $count; ?></span>
+                <img src="assets/images/<? echo $rank['fromPrevious']['img']; ?>.png">
+                <span><? echo $rank['fromPrevious']['nbr']; ?></span>
             </div>
 
             <div class="avatar">

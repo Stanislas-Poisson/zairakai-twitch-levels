@@ -10,4 +10,8 @@ $topHead  = $userManager->gettopHead();
 $topVIP   = $userManager->gettopVIP();
 $rankings = $userManager->getRankings();
 
+if($config['newPrevious']) {
+    $userManager->showNewPrevious();
+}
+
 require 'templates/layout.php';
